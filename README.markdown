@@ -14,12 +14,12 @@ Update image:
 
 Launch (from build directory):
 
-    docker run --privileged=true --name indigo_centos --volume `pwd`:/docker:rw valtri/docker-indigo-mock-centos /bin/bash
+    docker run -td --privileged=true --name indigo_centos --volume `pwd`:/docker:rw valtri/docker-indigo-mock-centos
 
 Example build (replace *${PACKAGE}.src.rpm*):
 
-    docker exec -u jenkins indigo_centos chown jenkins:jenkins /docker
-    docker exec -u jenkins indigo_centos /var/lib/jenkins/scripts/pkg-build-mock -d /docker -p epel-7-x86_64 /docker/${PACKAGE}.src.rpm
+    docker exec indigo_centos chown jenkins:jenkins /docker
+    docker exec -u jenkins indigo_centos /var/lib/jenkins/scripts/pkg-build-mock -d /docker -p epel-7-x86_64 ./${PACKAGE}.src.rpm
 
 # Tags
 

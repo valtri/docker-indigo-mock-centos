@@ -21,3 +21,4 @@ RUN puppet apply /root/site.pp \
 
 COPY ./docker-entry.sh /
 ENTRYPOINT ["/docker-entry.sh"]
+CMD ["tail",  "-f", "/dev/null"]
