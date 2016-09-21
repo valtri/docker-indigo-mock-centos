@@ -8,7 +8,7 @@ RUN wget -q -l2 -r -nd --accept epel-release\*.rpm ftp://mirror.switch.ch/mirror
 && rpm -ivh epel-release-*.rpm \
 && yum clean all
 
-RUN yum install -y puppet java-1.8.0-openjdk-headless \
+RUN yum install -y puppet openssh-server \
 && yum clean all
 
 #RUN puppet resource service puppet ensure=stopped enable=false
