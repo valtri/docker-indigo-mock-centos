@@ -2,9 +2,16 @@
 
 Builder container for CentOS 7 platform to build packages for [INDIGO-DataCloud project](http://www.indigo-datacloud.eu/).
 
-Container requires privileged mode as it uses mock.
+Container requires:
 
-For setup is used a puppet module [CESNET *jenkins\_node*](https://forge.puppet.com/cesnet/jenkins_node) and INDIGO-DataCloud repository version 1 is preconfigured.
+1. privileged mode: required by mock
+3. *DOCKER_OPTS="-s devicemapper"* or RHEL-like host system: there is the issue [#6980](https://github.com/docker/docker/issues/6980) with AUFS
+
+There is used for setup:
+
+* puppet module [CESNET *jenkins\_node*](https://forge.puppet.com/cesnet/jenkins_node)
+* INDIGO-DataCloud [build scripts](https://github.com/indigo-dc/jenkins-scripts)
+* INDIGO-DataCloud [repository](http://repo.indigo-datacloud.eu/#two) version 1
 
 # Launch
 
